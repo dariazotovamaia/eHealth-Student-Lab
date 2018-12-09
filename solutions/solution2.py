@@ -1,4 +1,4 @@
-svc = SVC(kernel='rbf')
+svc = SVC(kernel='poly')
 
 # Let's put last 30 examples into test set 
 X_train = fmri_masked[:-30]
@@ -13,5 +13,5 @@ svc.fit(X_train,Y_train)
 prediction = svc.predict(X_test)
 
 # Compute accuracy of SVC classifier
-accuracy = (prediction == Y_train).sum() / float(len(Y_test))
+accuracy = (prediction == Y_test).sum() / float(len(Y_test))
 print(accuracy)
